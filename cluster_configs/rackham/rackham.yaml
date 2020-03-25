@@ -1,0 +1,15 @@
+__default__:
+    account: "snic2020-5-125"
+    partition: "core"
+    extra: ""
+    time: "03:00:00"
+    n: 2
+    stderr: "slurm_logs/slurm-{rule}-{wildcards}.stderr"
+    stdout: "slurm_logs/slurm-{rule}-{wildcards}.stdout"
+    jobname: "[{rule}]: {wildcards}"
+
+RGI:
+        n: 19
+        time: "23:59:00"
+
+
