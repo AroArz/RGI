@@ -7,13 +7,13 @@ print(SAMPLES)
 
 rule all:
     input:
-            expand("output/{sample}.rgi.output", sample=SAMPLES)
+            expand("output/{sample}.rgi.output.txt", sample=SAMPLES)
 
 rule RGI:
     input:
             SNPs="input/{sample}.snp.fasta"
     output:
-            confirmed_snps="output/{sample}.rgi.output"
+            confirmed_snps="output/{sample}.rgi.output.txt"
     conda:
             "envs/rgi.yml"
     threads:
@@ -22,7 +22,7 @@ rule RGI:
             """
             rgi main \
             --input_sequence {input.SNPs} \
-            --output_file {output.confirmed_snps} \
+            --output_file output/{wildcards.sample}.rgi.output \
             --input_type contig \
             --low_quality \
             --clean
